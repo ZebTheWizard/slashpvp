@@ -8,7 +8,158 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+body {
+  background: #1c1c1c; /* Old browsers */
+  background: -moz-linear-gradient(45deg, #1c1c1c 0%, #2d2d2d 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(45deg, #1c1c1c 0%,#2d2d2d 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(45deg, #1c1c1c 0%,#2d2d2d 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1c1c1c', endColorstr='#2d2d2d',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+  min-height: 100vh;
+  width: 100%;
+}
+
+main,#app {
+  min-height: 100vh;
+}
+
+.site-title {
+  text-align: center;
+  font-size: 4rem;
+  letter-spacing: -0.2rem;
+  font-style: italic;
+  color: white;
+}
+
 .navbar-laravel {
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+.thing-wrapper {
+  position: relative;
+}
+
+.thing-filler {
+  margin-top: 100%;
+}
+
+.thing {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  .content {
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    background: #32393d; /* Old browsers */
+    background: -moz-linear-gradient(-45deg, #32393d 10%, #3e464b 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg, #32393d 10%,#3e464b 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg, #32393d 10%,#3e464b 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#32393d', endColorstr='#3e464b',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+    &:hover {
+      background: #30363a;
+    }
+    .label {
+      color: white;
+      position: absolute;
+      bottom: 1.5rem;
+      font-size: 1.2rem;
+      font-weight: 300;
+      left: 0;
+      text-align: center;
+      width: 100%;
+    }
+  }
+}
+
+
+.form-wrapper {
+  color: white;
+  width: 100%;
+  padding: 1rem;
+  border-radius: 10px;
+  background: #32393d; /* Old browsers */
+  background: -moz-linear-gradient(-45deg, #32393d 10%, #3e464b 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(-45deg, #32393d 10%,#3e464b 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(135deg, #32393d 10%,#3e464b 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#32393d', endColorstr='#3e464b',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+footer {
+  background: rgba(68, 68, 68, 0.1);
+}
+
+
+.ql-clipboard {display: none !important;}
+.ql-editor {outline: none !important;}
+
+
+.render-html {
+  h1,h2,h3,h4,h5,h6 { text-align: center }
+  p, .embeded {
+    margin-bottom: 3rem;
+  }
+  p{
+    margin-top: 0;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    word-break: break-all;
+    hyphens: auto;
+  }
+  .ql-size-small {
+    font-size: 0.75em;
+  }
+  .ql-size-large {
+    font-size: 1.2em;
+  }
+  .ql-size-huge {
+    font-size: 1.7em;
+  }
+  @function list($x) {
+    $result: ();
+      @for $j from $x through 8 {
+        $result: append($result, list-#{$j + 1});
+      }
+    @return $result;
+  }
+
+  li {
+      counter-reset: list(0);
+      counter-increment: list-0;
+      list-style-type: none;
+  }
+  ol li {
+    &:before {
+      content: counter(list-0, decimal) '. '
+    }
+  }
+  ul li {
+    &:before {
+      content: counter(list-0, disc) ' '
+    }
+  }
+
+  $ols: decimal lower-alpha lower-roman;
+  $uls: disc circle square;
+  @for $i from 1 through 8 {
+      .ql-indent-#{$i} {
+        margin-left: 3em * $i;
+        counter-reset: list($i);
+        counter-increment: list-#{$i};
+      }
+      ol .ql-indent-#{$i} {
+        &:before {
+          content: counter(list-#{$i}, nth($ols, ($i % 3) + 1)) '. '
+        }
+      }
+      ul .ql-indent-#{$i} {
+        &:before {
+          content: counter(list-#{$i}, nth($uls, ($i % 3) + 1)) '. '
+        }
+      }
+  }
 }

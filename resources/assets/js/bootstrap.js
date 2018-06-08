@@ -54,3 +54,10 @@ if (token) {
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     encrypted: true
 // });
+
+// require('sniddl-spa')
+window.Sniddl = require('sniddl-ajax')
+
+Sniddl.init('.linkable', {
+  addCss: true
+})

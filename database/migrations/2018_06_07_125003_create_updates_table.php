@@ -16,8 +16,7 @@ class CreateUpdatesTable extends Migration
         Schema::create('updates', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
-            $table->string('description');
-            $table->string('picture');
+            $table->longText('description');
             $table->string('type');
             $table->timestamps();
         });
