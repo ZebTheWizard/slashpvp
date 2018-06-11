@@ -10525,6 +10525,11 @@ main,
   color: white;
 }
 
+.site-title.redrose {
+  color: #dd432f;
+  text-shadow: 0px 1px 3px black;
+}
+
 .navbar-laravel {
   background-color: #fff;
   -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);

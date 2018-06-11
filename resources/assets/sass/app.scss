@@ -28,6 +28,10 @@ main,#app {
   letter-spacing: -0.2rem;
   font-style: italic;
   color: white;
+  &.redrose {
+    color: #dd432f;
+    text-shadow: 0px 1px 3px black;
+  }
 }
 
 .navbar-laravel {
